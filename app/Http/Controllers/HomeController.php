@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('clients/home/index');
+        $title = "Tieu de trang";
+        $description = "Mo ta chi tiet thong tin trang";
+
+        // return view('clients/home/index', ['title' => $title, 'description' => $description]);
+        // return view('clients/home/index')->with(['title' => $title, 'description' => $description]);
+        // return view('clients/home/index', compact('title', 'description'));
+        return View::make('clients.home.index', compact('title', 'description'));
     }
 
     /**
