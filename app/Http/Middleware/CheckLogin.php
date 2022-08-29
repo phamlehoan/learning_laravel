@@ -16,7 +16,9 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        echo "midd";
+        if($request->is('homes/*') || $request->is('homes')) {
+            echo "midd home";
+        }
         return $next($request);
     }
 }
