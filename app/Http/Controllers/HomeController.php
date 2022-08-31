@@ -35,7 +35,8 @@ class HomeController extends Controller
      */
     public function create()
     {
-        return "Tao san pham";
+        $title = "Tao home";
+        return view('clients.home.create', compact('title'));
     }
 
     /**
@@ -46,7 +47,10 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $username = $request->all()['username'];
+        // $request->session()->flash('info', $username);
+        // return redirect('/homes');
+        return redirect('/homes')->with('info', $username);
     }
 
     /**
@@ -81,7 +85,7 @@ class HomeController extends Controller
     public function update(Request $request, $id)
     {
         // Một vài phương thức request
-        // - $request->all(): Lấy tất cả dữ liệu
+        // - $request->all(): Lấy tất cả dữ liệu trong body
         // - $request->path(): Lấy path trong URL
         // - $request->url(): Lấy URL (không lấy query string)
         // - $request->fullUrl(): Lấy URL (bao gồm query string)

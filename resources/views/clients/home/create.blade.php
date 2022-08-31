@@ -11,7 +11,11 @@
         </div>
         <div class="col-9">
             <div class="text-center">
-                ABC
+                <form action="/homes" method="POST">
+                    @csrf
+                    <input type="text" name="username">
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>
