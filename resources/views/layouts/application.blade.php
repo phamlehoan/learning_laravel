@@ -14,11 +14,7 @@
     </header>
 
     <main>
-        @if (session('info'))
-            <div class="alert alert-info">
-                {{ session('info') }}
-            </div>
-        @endif
+        <x-alert type="info" />
         <div class="content">
             @yield('content')
         </div>
