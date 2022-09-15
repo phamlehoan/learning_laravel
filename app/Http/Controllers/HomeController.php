@@ -116,4 +116,17 @@ class HomeController extends Controller
     {
         //
     }
+
+    public function downloadImage(Request $request)
+    {
+      if(!empty($request->image_url)) {
+        $image = trim($request->image_url);
+        $image_name = 'image-'.uniqid().'.jpg';
+
+        return response()->streamDownload(function() use ($image) {
+            $img_content = file_get_contents($image);
+            echo $img_content;
+        }, $image_name);
+      }
+    }
 }

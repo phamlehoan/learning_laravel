@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
+Route::get('homes/download-image', [HomeController::class, 'downloadImage'])->name('download-image');
 Route::resource('homes', HomeController::class);
+
 
 /*
 |--------------------------------------------------------------------------
